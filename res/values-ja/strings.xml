@@ -50,7 +50,7 @@
     <string name="data_sim_name">SIM <xliff:g id="sub">%1$d</xliff:g> - <xliff:g id="name">%2$s</xliff:g></string>
     <string name="emergency_call">緊急通報</string>
     <string name="accessibility_settings">ユーザー補助設定</string>
-    <string name="setup_services">LineageOS の機能</string>
+    <string name="setup_services">OkcarOS の機能</string>
     <string name="services_pp_explanation">これらのサービスはデバイスの機能を拡張するために動作します。データは <xliff:g id="name" example="LineageOS">%1$s</xliff:g> のプライバシーポリシーに従って使用されます。</string>
     <string name="services_find_privacy_policy">別のデバイスで<xliff:g id="uri" example="https://lineageos.org/legal">%1$s</xliff:g>にアクセスしてプライバシーポリシーを読むことができます。</string>
     <string name="services_help_improve_cm"><xliff:g id="name" example="LineageOS">%s</xliff:g>の改善に協力します</string>

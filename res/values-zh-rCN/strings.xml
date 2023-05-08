@@ -50,7 +50,7 @@
     <string name="data_sim_name">SIM卡<xliff:g id="sub">%1$d</xliff:g> - <xliff:g id="name">%2$s</xliff:g></string>
     <string name="emergency_call">紧急电话</string>
     <string name="accessibility_settings">无障碍设置</string>
-    <string name="setup_services">LineageOS 功能</string>
+    <string name="setup_services">OkcarOS 功能</string>
     <string name="services_pp_explanation">这些服务可帮助您扩展设备的功能。 数据将按照 <xliff:g id="name" example="LineageOS">%1$s</xliff:g>的隐私政策进行使用。</string>
     <string name="services_find_privacy_policy">您可以使用其他设备访问 <xliff:g id="uri" example="https://lineageos.org/legal">%1$s</xliff:g> 来了解隐私政策</string>
     <string name="services_help_improve_cm">帮助改进 <xliff:g id="name" example="LineageOS">%s</xliff:g></string>

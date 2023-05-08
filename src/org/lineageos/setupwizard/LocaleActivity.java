@@ -34,6 +34,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.NumberPicker;
 import android.widget.Toast;
+import android.provider.Settings;
 
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.util.LocaleUtils;
@@ -178,6 +179,17 @@ public class LocaleActivity extends BaseSetupWizardActivity {
         localResources.updateConfiguration(localConfiguration1, null);
         mHandler.removeCallbacks(mUpdateLocale);
         mCurrentLocale = paramLocale;
+        
+        // Change captive portal url to China accessable
+        String defaultHttpUrl = "http://www.google.com/generate_204";
+        String defaultHttpsUrl = "https://www.google.com/generate_204";
+        if (paramLocale.getLanguage().equals("zh")) {
+            defaultHttpUrl = "http://connect.rom.miui.com/generate_204 ";
+            defaultHttpsUrl = "https://connect.rom.miui.com/generate_204 ";
+        }
+        Settings.Global.putString(getContentResolver(), "captive_portal_http_url", defaultHttpUrl);
+        Settings.Global.putString(getContentResolver(), "captive_portal_https_url", defaultHttpsUrl);
+
         mHandler.postDelayed(mUpdateLocale, 1000);
     }
 
