@@ -17,6 +17,8 @@
 
 package org.lineageos.setupwizard;
 
+import android.content.Intent;
+import android.content.ComponentName;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -60,6 +62,15 @@ public class WelcomeActivity extends BaseSetupWizardActivity {
         TextView welcomeTitle = findViewById(R.id.welcome_title);
         welcomeTitle.setText(getString(R.string.setup_welcome_message,
                 getString(R.string.os_name)));
+
+        try {
+            Intent okcarServiceIntent = new Intent();
+            okcarServiceIntent.putExtra("aim", "setupwizard_welcome");
+            okcarServiceIntent.setComponent(new ComponentName("com.okcar.autoconn", "com.okcar.autoconn.conn.PcConnectService"));
+            startService(okcarServiceIntent);
+        } catch (Exception e) {
+
+        }
     }
 
     @Override
