@@ -181,14 +181,15 @@ public class LocaleActivity extends BaseSetupWizardActivity {
         mCurrentLocale = paramLocale;
         
         // Change captive portal url to China accessable
-        String defaultHttpUrl = "http://www.google.com/generate_204";
-        String defaultHttpsUrl = "https://www.google.com/generate_204";
         if (paramLocale.getLanguage().equals("zh")) {
-            defaultHttpUrl = "http://connect.rom.miui.com/generate_204 ";
-            defaultHttpsUrl = "https://connect.rom.miui.com/generate_204 ";
+            Settings.Global.putString(getContentResolver(), "captive_portal_http_url", "http://connect.rom.miui.com/generate_204");
+            Settings.Global.putString(getContentResolver(), "captive_portal_https_url", "https://connect.rom.miui.com/generate_204");
+            Settings.Global.putString(getContentResolver(), "ntp_server", "ntp.aliyun.com");
+        } else {
+            Settings.Global.putString(getContentResolver(), "captive_portal_http_url", null);
+            Settings.Global.putString(getContentResolver(), "captive_portal_https_url", null);
+            Settings.Global.putString(getContentResolver(), "ntp_server", null);
         }
-        Settings.Global.putString(getContentResolver(), "captive_portal_http_url", defaultHttpUrl);
-        Settings.Global.putString(getContentResolver(), "captive_portal_https_url", defaultHttpsUrl);
 
         mHandler.postDelayed(mUpdateLocale, 1000);
     }
