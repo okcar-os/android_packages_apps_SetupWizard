@@ -108,6 +108,7 @@ public class NavigationSettingsActivity extends BaseSetupWizardActivity {
                 findViewById(R.id.navigation_illustration);
         final RadioGroup radioGroup = findViewById(R.id.navigation_radio_group);
         mHideGesturalHint = findViewById(R.id.hide_navigation_hint);
+        mHideGesturalHint.setChecked(true);
 
         // Hide navigation hint checkbox when taskbar is enabled
         if (mIsTaskbarEnabled) {
