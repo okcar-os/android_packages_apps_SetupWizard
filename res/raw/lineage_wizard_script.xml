@@ -36,16 +36,16 @@
     </WizardAction> -->
 
     <WizardAction wizard:uri="intent:#Intent;action=org.lineageos.setupwizard.LINEAGE_NETWORK_SETUP;end" id="network_setup">
-         <result wizard:action="device_specific" />
+         <result wizard:action="datetime" />
     </WizardAction>
 
-    <!-- <WizardAction wizard:uri="intent:#Intent;action=org.lineageos.setupwizard.LINEAGE_DATETIME;end" id="datetime">
+    <WizardAction wizard:uri="intent:#Intent;action=org.lineageos.setupwizard.LINEAGE_DATETIME;end" id="datetime">
         <result wizard:action="location_settings" />
-    </WizardAction> -->
+    </WizardAction>
 
-    <!-- <WizardAction wizard:uri="intent:#Intent;action=org.lineageos.setupwizard.LINEAGE_LOCATION_SETTINGS;end" id="location_settings">
+    <WizardAction wizard:uri="intent:#Intent;action=org.lineageos.setupwizard.LINEAGE_LOCATION_SETTINGS;end" id="location_settings">
         <result wizard:action="device_specific" />
-    </WizardAction> -->
+    </WizardAction>
 
     <WizardAction wizard:uri="intent:#Intent;action=org.lineageos.setupwizard.DEVICE_SPECIFIC;end" id="device_specific">
         <result wizard:action="lineage_settings" />
