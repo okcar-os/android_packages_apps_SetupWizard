@@ -98,11 +98,11 @@ public class LineageSettingsActivity extends BaseSetupWizardActivity {
         mNavKeys = (CheckBox) findViewById(R.id.nav_keys_checkbox);
         mSupportsKeyDisabler = isKeyDisablerSupported(this);
         if (mSupportsKeyDisabler) {
-            mNavKeys.setChecked(LineageSettings.System.getIntForUser(getContentResolver(),
-                    LineageSettings.System.FORCE_SHOW_NAVBAR, 0, UserHandle.USER_CURRENT) != 0);
-        } else {
-            navKeysRow.setVisibility(View.GONE);
+            mNavKeys.setChecked(true);
+            mSetupWizardApp.getSettingsBundle().putBoolean(DISABLE_NAV_KEYS, true);
         }
+
+        navKeysRow.setVisibility(View.GONE);
     }
 
     @Override
