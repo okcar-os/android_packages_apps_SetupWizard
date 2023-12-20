@@ -67,8 +67,9 @@ public class NavigationSettingsActivity extends BaseSetupWizardActivity {
         if (mSetupWizardApp.getSettingsBundle().containsKey(DISABLE_NAV_KEYS)) {
             navBarEnabled = mSetupWizardApp.getSettingsBundle().getBoolean(DISABLE_NAV_KEYS);
         }
-        mIsTaskbarEnabled = LineageSettings.System.getInt(getContentResolver(),
-                LineageSettings.System.ENABLE_TASKBAR, isLargeScreen(this) ? 1 : 0) == 1;
+        // mIsTaskbarEnabled = LineageSettings.System.getInt(getContentResolver(),
+        //         LineageSettings.System.ENABLE_TASKBAR, isLargeScreen(this) ? 1 : 0) == 1;
+        mIsTaskbarEnabled = false;
 
         int deviceKeys = getResources().getInteger(
                 org.lineageos.platform.internal.R.integer.config_deviceHardwareKeys);
@@ -111,9 +112,10 @@ public class NavigationSettingsActivity extends BaseSetupWizardActivity {
         mHideGesturalHint.setChecked(true);
 
         // Hide navigation hint checkbox when taskbar is enabled
-        if (mIsTaskbarEnabled) {
-            mHideGesturalHint.setVisibility(View.GONE);
-        }
+        // if (mIsTaskbarEnabled) {
+        //     mHideGesturalHint.setVisibility(View.GONE);
+        // }
+        mHideGesturalHint.setVisibility(View.GONE);
 
         radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
             @Override
@@ -187,8 +189,11 @@ public class NavigationSettingsActivity extends BaseSetupWizardActivity {
         mSetupWizardApp.getSettingsBundle().putString(NAVIGATION_OPTION_KEY, mSelection);
         if (!mIsTaskbarEnabled) {
             boolean hideHint = mHideGesturalHint.isChecked();
+            // LineageSettings.System.putIntForUser(getContentResolver(),
+            //         LineageSettings.System.NAVIGATION_BAR_HINT, hideHint ? 0 : 1,
+            //         UserHandle.USER_CURRENT);
             LineageSettings.System.putIntForUser(getContentResolver(),
-                    LineageSettings.System.NAVIGATION_BAR_HINT, hideHint ? 0 : 1,
+                    LineageSettings.System.NAVIGATION_BAR_HINT, 0,
                     UserHandle.USER_CURRENT);
         }
         Intent intent = WizardManagerHelper.getNextIntent(getIntent(), Activity.RESULT_OK);
